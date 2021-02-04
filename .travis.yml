@@ -1,12 +1,26 @@
 language: node_js
 node_js:
   - 'node'
-before_install:
-  - npm install -g @angular/cli
-install: npm install
+
 branches:
   only:
   - master
+
+addons:
+  chrome: stable
+
+before_script:
+  - yarn global add @angular/cli
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+script:
+  - ng build --prod
+
+
 deploy:
   provider: heroku
   api_key:
