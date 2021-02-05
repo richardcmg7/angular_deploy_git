@@ -20,9 +20,12 @@ cache:
 script:
   - ng build --prod
 
-
 deploy:
-  provider: heroku
-  api_key:
-    secure: "062796eb-74a5-451b-9c87-40e35e50c5ed"
-  app: angular_deploy_git
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: ./dist/
+  on:
+
+
